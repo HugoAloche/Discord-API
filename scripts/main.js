@@ -1,7 +1,10 @@
 window.addEventListener('load', initApp)
 
 async function initApp() {
-    await fetch('https://discord.com/api/guilds/990896868793925632/widget.json')
+    await fetch('https://discord.com/api/guilds/990896868793925632/widget.json', {
+        method: 'GET',
+        headers: {'Accept': 'text/json'}
+    })
         .then(res => {
             res.json().then(data => {
                 document.getElementById('title').innerHTML = data.name
